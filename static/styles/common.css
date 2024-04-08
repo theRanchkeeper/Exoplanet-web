@@ -1,0 +1,22 @@
+:root {
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  text-align: center;
+  color: blueviolet;
+}
+
+button {
+  border-radius: 0%;
+  border-color: black;
+  width: 100px;
+  height: 25px;
+  box-shadow: none;
+}
+
+mid {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='styles/common.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='styles/styles.css')}}"
+    />
+  </head>
+  <body>
+    <h1>Exoplanet Habitability Prediction</h1>
+    <div class="container">
+      <div id="input-form">
+        <form method="POST" action="{{url_for('prediction')}}">
+          <label for="mass-p"> Mass of planet</label>
+          <input
+            type="text"
+            name="mass-p"
+            id="mass-p"
+            placeholder="In unit of earth mass"
+          />
+          <label for="radius"> Radius of planet </label>
+          <input
+            type="text"
+            name="radius"
+            id="radius"
+            placeholder="In unit of earth radius"
+          />
+          <label for="mass-s"> Mass of star </label>
+          <input
+            type="text"
+            name="mass-s"
+            id="mass-s"
+            placeholder="In solar unit"
+          />
+          <label for="ev"> Escape velocity of planet </label>
+          <input type="text" name="ev" id="ev" placeholder="In earth units" />
+          <label for="gp"> Gravitational potential</label>
+          <input type="text" name="gp" id="gp" placeholder="In earth units" />
+          <label for="dp"> Density of planet </label>
+          <input type="text" name="dp" id="dp" placeholder="In earth units" />
+          <label for="hsp">Hill sphere of planet </label>
+          <input type="text" name="hsp" id="hsp" placeholder="In earth units" />
+          <label for="minsf">Minimum orbital stellar flux </label>
+          <input
+            type="text"
+            name="minsf"
+            id="minsf"
+            placeholder="In earth units"
+          />
+          <label id="planet-type"> Type of planet </label>
+          <select id="planet-type" name="planet-type">
+            <option value="" selected>select</option>
+            {%for ptype in p_type%}
+            <option value="{{ptype}}">{{ptype}}</option>
+            {%endfor%}
+          </select>
+          <label id="thermal-type">Thermal type of planet</label>
+          <select id="thermal-type" name="thermal-type">
+            <option value="" selected>select</option>
+            {%for ttype in temp_ptype%}
+            <option value="{{ttype}}">{{ttype}}</option>
+            {%endfor%}
+          </select>
+          <label id="const-name">Constellation name of star</label>
+          <select id="const-name" name="const-name">
+            <option value="" selected>select</option>
+            {%for cname in const_name%}
+            <option value="{{cname}}">{{cname}}</option>
+            {%endfor%}
+          </select>
+          <div id="btn-cont">
+            <button type="submit">Predict</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
